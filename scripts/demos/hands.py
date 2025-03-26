@@ -45,6 +45,7 @@ from isaaclab.assets import Articulation
 ##
 from isaaclab_assets.robots.allegro import ALLEGRO_HAND_CFG  # isort:skip
 from isaaclab_assets.robots.shadow_hand import SHADOW_HAND_CFG  # isort:skip
+from isaaclab_assets.robots.simple_gripper import SIMPLE_GRIPPER_CFG
 
 
 def define_origins(num_origins: int, spacing: float) -> list[list[float]]:
@@ -78,7 +79,7 @@ def design_scene() -> tuple[dict, list[list[float]]]:
     # Origin 1 with Allegro Hand
     prim_utils.create_prim("/World/Origin1", "Xform", translation=origins[0])
     # -- Robot
-    allegro = Articulation(ALLEGRO_HAND_CFG.replace(prim_path="/World/Origin1/Robot"))
+    allegro = Articulation(SIMPLE_GRIPPER_CFG.replace(prim_path="/World/Origin1/Robot"))
 
     # Origin 2 with Shadow Hand
     prim_utils.create_prim("/World/Origin2", "Xform", translation=origins[1])
